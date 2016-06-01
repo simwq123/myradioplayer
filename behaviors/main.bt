@@ -1,0 +1,396 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "asset-pack": "core",
+        "children": [
+            4,
+            "0b45db25-df2f-48df-8631-2e05ec6123be",
+            "095967ee-b507-4c9c-8027-50b539450768",
+            "200a835f-9e21-43d3-a7c5-184175fd941e",
+            "f59690d4-0487-4d45-9dd9-9f7bed710f75",
+            "af3a6507-bbd9-4a35-b35f-f2a94f7e2fc1",
+            "45d4d6bf-e2d2-4fe3-9aaa-b8d02064df76",
+            "c4aad359-e7ee-45f3-bd6e-c05e75c9d8c5",
+            "fdb748aa-6868-4068-b0ab-a7d1af207b3d"
+        ],
+        "decorators": [],
+        "options": {}
+    },
+    "4": {
+        "id": 4,
+        "class": "PlayAnimation",
+        "name": "Play a greeting",
+        "asset-pack": "core",
+        "parent": 1,
+        "options": {
+            "animPath": "greeting.keys",
+            "config": [
+                "(animation) => {",
+                "  notepad.hehe = 123;",
+                "}"
+            ]
+        },
+        "skipped": false
+    },
+    "6": {
+        "id": 6,
+        "class": "PlayAudio",
+        "name": "Bawhoop",
+        "asset-pack": "core",
+        "parent": "4ca32d10-88d2-4444-a1d7-fc78f0dd2bf4",
+        "options": {
+            "audioPath": "FX_Bleep.mp3"
+        },
+        "skipped": false
+    },
+    "meta": {
+        "version": 1
+    },
+    "f59690d4-0487-4d45-9dd9-9f7bed710f75": {
+        "id": "f59690d4-0487-4d45-9dd9-9f7bed710f75",
+        "class": "TakePhoto",
+        "name": "",
+        "options": {
+            "resolution": 1,
+            "onPhoto": [
+                "(error, imageUrl) => {",
+                "  var fs = require(\"fs\")",
+                "  var request = require(\"request\");",
+                "  var nodemailer = require(\"nodemailer\");",
+                " ",
+                "var transport = nodemailer.createTransport(\"SMTP\", {",
+                "    host: \"smtp.qq.com\",",
+                "    secureConnection: true, // use SSL",
+                "    port: 465, // port for secure SMTP",
+                "    auth: {",
+                "        user: \"279180582@qq.com\",",
+                "        pass: \"msojmrlubjtabifj\"",
+                "    }",
+                "});",
+                "transport.sendMail({",
+                "    from : \"279180582@qq.com\",",
+                "    to : \"279180582@qq.com\",",
+                "    subject: \"测试\",",
+                "    generateTextFromHTML : true,",
+                "    html : \"<p>这是封测试邮件</p><br><img src=\" + imageUrl + \">\"",
+                "}, function(error, response){",
+                "    if(error){",
+                "        console.log(error);",
+                "    }else{",
+                "        console.log(\"Message sent: \" + response.message);",
+                "    }",
+                "    transport.close();",
+                "});",
+                "  console.log(imageUrl);",
+                "  var write = fs.createWriteStream(\"pic.jpg\");",
+                "  request.get(imageUrl).pipe(write);",
+                "}"
+            ],
+            "noDistortion": true
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": true
+    },
+    "200a835f-9e21-43d3-a7c5-184175fd941e": {
+        "id": "200a835f-9e21-43d3-a7c5-184175fd941e",
+        "class": "ReadBarcode",
+        "name": "",
+        "options": {
+            "onBarcode": [
+                "(error, data) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": true
+    },
+    "af3a6507-bbd9-4a35-b35f-f2a94f7e2fc1": {
+        "id": "af3a6507-bbd9-4a35-b35f-f2a94f7e2fc1",
+        "class": "SubtreeJs",
+        "name": "",
+        "options": {
+            "getFileName": [
+                "(callback) => {",
+                "}"
+            ],
+            "getNotepad": [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            "onResult": [
+                "(treeResult) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": true
+    },
+    "45d4d6bf-e2d2-4fe3-9aaa-b8d02064df76": {
+        "id": "45d4d6bf-e2d2-4fe3-9aaa-b8d02064df76",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "Hello",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "decorators": [
+            "47afdc53-3738-4d3a-801f-1e3ff33efa17"
+        ]
+    },
+    "48349272-968f-4f9f-a26d-9dfca5417887": {
+        "id": "48349272-968f-4f9f-a26d-9dfca5417887",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var animate = require(\"jibo\").animate;",
+                "  let x = 1;",
+                "\tlet y = (1 - Math.random());",
+                "\tlet z = Math.random();",
+                "  animate.setLEDColor([x, y, z]);  ",
+                "//animate.blink();  ",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "4ca32d10-88d2-4444-a1d7-fc78f0dd2bf4",
+        "skipped": true
+    },
+    "4ca32d10-88d2-4444-a1d7-fc78f0dd2bf4": {
+        "id": "4ca32d10-88d2-4444-a1d7-fc78f0dd2bf4",
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "parent": "fdb748aa-6868-4068-b0ab-a7d1af207b3d",
+        "children": [
+            6,
+            "579ff418-bbf8-4e83-b31d-2fac4c3de52d",
+            "083b4c31-c902-4857-a3e5-899cc290d37f",
+            "48349272-968f-4f9f-a26d-9dfca5417887"
+        ],
+        "decorators": [
+            "ece723b6-c3de-4f32-b352-9eba2dc2422b"
+        ],
+        "skipped": true
+    },
+    "ece723b6-c3de-4f32-b352-9eba2dc2422b": {
+        "id": "ece723b6-c3de-4f32-b352-9eba2dc2422b",
+        "class": "WhileCondition",
+        "name": "",
+        "options": {
+            "init": [
+                "() => {",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "    return true;",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "78ec8a96-ee13-4b34-9cd3-cbf32db799f0": {
+        "id": "78ec8a96-ee13-4b34-9cd3-cbf32db799f0",
+        "class": "WhileCondition",
+        "name": "",
+        "options": {
+            "init": [
+                "() => {",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "    return true;",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "42f226e9-ec60-4c45-b307-c87a6ef8a91a": {
+        "id": "42f226e9-ec60-4c45-b307-c87a6ef8a91a",
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "parent": "fdb748aa-6868-4068-b0ab-a7d1af207b3d",
+        "children": [
+            "56ae04de-feb3-4c87-8241-43ff6cc4923e",
+            "cb6570a3-edfc-4cd0-b475-b7a180bfbc7e"
+        ],
+        "decorators": [
+            "78ec8a96-ee13-4b34-9cd3-cbf32db799f0"
+        ]
+    },
+    "cb6570a3-edfc-4cd0-b475-b7a180bfbc7e": {
+        "id": "cb6570a3-edfc-4cd0-b475-b7a180bfbc7e",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var animate = require(\"jibo\").animate;",
+                "  let x = 1;",
+                "\tlet y = (1 - 2 * Math.random());",
+                "\tlet z = 0.7 + 0.5 * (1 - 2 * Math.random());",
+                "var target = new animate.THREE.Vector3(x, y, z);  // target position to look at",
+                "",
+                "var builder = animate.createLookatBuilder();",
+                "builder.startLookat(target);",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "42f226e9-ec60-4c45-b307-c87a6ef8a91a"
+    },
+    "fdb748aa-6868-4068-b0ab-a7d1af207b3d": {
+        "id": "fdb748aa-6868-4068-b0ab-a7d1af207b3d",
+        "class": "Parallel",
+        "name": "",
+        "options": {
+            "succeedOnOne": false
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "children": [
+            "42f226e9-ec60-4c45-b307-c87a6ef8a91a",
+            "4ca32d10-88d2-4444-a1d7-fc78f0dd2bf4"
+        ],
+        "skipped": true
+    },
+    "56ae04de-feb3-4c87-8241-43ff6cc4923e": {
+        "id": "56ae04de-feb3-4c87-8241-43ff6cc4923e",
+        "class": "TimeoutJs",
+        "name": "",
+        "options": {
+            "getTime": [
+                "() => {",
+                "    return 3000 + 500 * Math.random();",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "42f226e9-ec60-4c45-b307-c87a6ef8a91a"
+    },
+    "083b4c31-c902-4857-a3e5-899cc290d37f": {
+        "id": "083b4c31-c902-4857-a3e5-899cc290d37f",
+        "class": "TimeoutJs",
+        "name": "",
+        "options": {
+            "getTime": [
+                "() => {",
+                "    return 2000 + 2500 * Math.random();",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "4ca32d10-88d2-4444-a1d7-fc78f0dd2bf4",
+        "skipped": true
+    },
+    "579ff418-bbf8-4e83-b31d-2fac4c3de52d": {
+        "id": "579ff418-bbf8-4e83-b31d-2fac4c3de52d",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var animate = require(\"jibo\").animate;",
+                "  var jibo = require(\"jibo\");",
+                "  //jibo.audio.getMasterVolume();",
+                "  //console.log(voluem);",
+                "animate.blink();  ",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "4ca32d10-88d2-4444-a1d7-fc78f0dd2bf4",
+        "skipped": false
+    },
+    "0b45db25-df2f-48df-8631-2e05ec6123be": {
+        "id": "0b45db25-df2f-48df-8631-2e05ec6123be",
+        "class": "LookAt",
+        "name": "",
+        "options": {
+            "getTarget": [
+                "() => {",
+                "  alert(notepad.hehe)",
+                "  console.log(JSON.stringify(this));",
+                "    return {x: 0, y: 0, z: 0};",
+                "}"
+            ],
+            "isContinuous": false,
+            "config": [
+                "(lookAt) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1
+    },
+    "47afdc53-3738-4d3a-801f-1e3ff33efa17": {
+        "id": "47afdc53-3738-4d3a-801f-1e3ff33efa17",
+        "class": "StartOnCondition",
+        "name": "",
+        "options": {
+            "init": [
+                "() => {",
+                "  //notepad.hehe = 321;",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "  if (notepad.hehe == 123)",
+                "  return true;",
+                "  else ",
+                "  return false;",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "skipped": false
+    },
+    "095967ee-b507-4c9c-8027-50b539450768": {
+        "id": "095967ee-b507-4c9c-8027-50b539450768",
+        "class": "CenterRobot",
+        "name": "",
+        "options": {
+            "isGlobal": false
+        },
+        "asset-pack": "project",
+        "parent": 1
+    },
+    "c4aad359-e7ee-45f3-bd6e-c05e75c9d8c5": {
+        "id": "c4aad359-e7ee-45f3-bd6e-c05e75c9d8c5",
+        "class": "LookAt",
+        "name": "",
+        "options": {
+            "getTarget": [
+                "() => {",
+                "  alert(notepad.hehe)",
+                "  console.log(JSON.stringify(this));",
+                "    return {x: 0, y: 0, z: 0};",
+                "}"
+            ],
+            "isContinuous": false,
+            "config": [
+                "(lookAt) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1
+    }
+}

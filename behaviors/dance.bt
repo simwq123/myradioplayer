@@ -1,0 +1,200 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Parallel",
+        "name": "",
+        "options": {
+            "succeedOnOne": false
+        },
+        "asset-pack": "core",
+        "children": [
+            "fc833877-2843-4770-9901-a509a50ce982",
+            "e2753fa1-23a1-4e94-811c-c50b3bf9a657"
+        ]
+    },
+    "meta": {
+        "version": 1
+    },
+    "f4ff0bcb-da5b-4c0e-a525-78db40462404": {
+        "id": "f4ff0bcb-da5b-4c0e-a525-78db40462404",
+        "class": "Switch",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "parent": "e2753fa1-23a1-4e94-811c-c50b3bf9a657",
+        "children": [
+            "4919088f-c2d7-4f51-9dab-b430027b101f",
+            "ac7ec7c1-a30d-4060-b273-83609ba6570f",
+            "8253c034-a4e2-4dde-bcc4-97c1723df695"
+        ],
+        "decorators": [
+            "357a82a2-5a7d-465c-99ae-783442466f77"
+        ],
+        "skipped": false
+    },
+    "357a82a2-5a7d-465c-99ae-783442466f77": {
+        "id": "357a82a2-5a7d-465c-99ae-783442466f77",
+        "class": "WhileCondition",
+        "name": "",
+        "options": {
+            "init": [
+                "() => {",
+                "  notepad.random = 0;",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "    if (notepad.musicComplete == true)",
+                "      return false;",
+                "    else {",
+                "      notepad.random = 1 + Math.floor(Math.random() * 3);",
+                "      return true;",
+                "    }",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "fc833877-2843-4770-9901-a509a50ce982": {
+        "id": "fc833877-2843-4770-9901-a509a50ce982",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var sound = require(\"jibo\").sound;",
+                "  var soundObj = new sound.Sound(sound._context, \"./audio/KnocK-on.mp3\");",
+                "  function complete(){",
+                "    console.log(\"complete321\");",
+                "    notepad.musicComplete = true;",
+                "  }",
+                "  function loaded(){",
+                "      emitter.emit('musicLoaded')",
+                "  }",
+                "  soundObj.complete = complete;",
+                "  soundObj.play({loaded : loaded});",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": false
+    },
+    "4919088f-c2d7-4f51-9dab-b430027b101f": {
+        "id": "4919088f-c2d7-4f51-9dab-b430027b101f",
+        "class": "PlayAnimation",
+        "name": "",
+        "options": {
+            "animPath": "dance.keys",
+            "config": [
+                "(animation) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "f4ff0bcb-da5b-4c0e-a525-78db40462404",
+        "decorators": [
+            "4a221f8f-99ac-4efa-9e07-9ae6c5282b6c"
+        ]
+    },
+    "ac7ec7c1-a30d-4060-b273-83609ba6570f": {
+        "id": "ac7ec7c1-a30d-4060-b273-83609ba6570f",
+        "class": "PlayAnimation",
+        "name": "",
+        "options": {
+            "animPath": "excited.keys",
+            "config": [
+                "(animation) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "f4ff0bcb-da5b-4c0e-a525-78db40462404",
+        "decorators": [
+            "3db372ee-473c-42f4-b93d-f01429e09983"
+        ]
+    },
+    "8253c034-a4e2-4dde-bcc4-97c1723df695": {
+        "id": "8253c034-a4e2-4dde-bcc4-97c1723df695",
+        "class": "PlayAnimation",
+        "name": "",
+        "options": {
+            "animPath": "greeting.keys",
+            "config": [
+                "(animation) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "f4ff0bcb-da5b-4c0e-a525-78db40462404"
+    },
+    "e2753fa1-23a1-4e94-811c-c50b3bf9a657": {
+        "id": "e2753fa1-23a1-4e94-811c-c50b3bf9a657",
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "parent": 1,
+        "decorators": [
+            "83477128-03f7-4e74-8ad6-89e44c0e3e3a"
+        ],
+        "skipped": false,
+        "children": [
+            "f4ff0bcb-da5b-4c0e-a525-78db40462404",
+            "7e759e06-bbf3-4bdc-b832-96b43672492b"
+        ]
+    },
+    "83477128-03f7-4e74-8ad6-89e44c0e3e3a": {
+        "id": "83477128-03f7-4e74-8ad6-89e44c0e3e3a",
+        "class": "StartOnEvent",
+        "name": "",
+        "options": {
+            "eventName": "musicLoaded",
+            "onEvent": [
+                "() => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "skipped": false
+    },
+    "7e759e06-bbf3-4bdc-b832-96b43672492b": {
+        "id": "7e759e06-bbf3-4bdc-b832-96b43672492b",
+        "class": "CenterRobot",
+        "name": "",
+        "options": {
+            "isGlobal": false
+        },
+        "asset-pack": "project",
+        "parent": "e2753fa1-23a1-4e94-811c-c50b3bf9a657",
+        "skipped": false
+    },
+    "4a221f8f-99ac-4efa-9e07-9ae6c5282b6c": {
+        "id": "4a221f8f-99ac-4efa-9e07-9ae6c5282b6c",
+        "class": "Case",
+        "name": "",
+        "options": {
+            "conditional": [
+                "() => {",
+                "  if (notepad.random % 3 == 0)",
+                "    return true;",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "3db372ee-473c-42f4-b93d-f01429e09983": {
+        "id": "3db372ee-473c-42f4-b93d-f01429e09983",
+        "class": "Case",
+        "name": "",
+        "options": {
+            "conditional": [
+                "() => {",
+                "  if (notepad.random % 3 == 1)",
+                "    return true;",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    }
+}

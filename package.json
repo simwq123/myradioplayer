@@ -1,0 +1,17 @@
+{
+  "name": "hello-world",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "behaviorify": "^1.0.0",
+    "express": "^4.13.4",
+    "jibo": "^3.0.0",
+    "nodemailer": "^0.7.1",
+    "request": "^2.72.0"
+  },
+  "license": "UNLICENSED"
+}

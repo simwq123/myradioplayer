@@ -1,0 +1,79 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "children": [
+            "9c5be321-7539-4b37-9e56-dc91a1eb582d",
+            "14a8eb41-031c-4afe-9ac4-909f4fe2f2d0",
+            "f34ef223-e360-499b-bfe4-b363048c4885"
+        ]
+    },
+    "meta": {
+        "version": 1
+    },
+    "9c5be321-7539-4b37-9e56-dc91a1eb582d": {
+        "id": "9c5be321-7539-4b37-9e56-dc91a1eb582d",
+        "class": "TakePhoto",
+        "name": "",
+        "options": {
+            "resolution": 2,
+            "onPhoto": [
+                "(error, imageUrl) => {",
+                "  //redraw every frame",
+                "  jibo.face.renderOnlyWhenDirty = false;",
+                "",
+                "  // create new Pixi sprite",
+                "  notepad.photo = new PIXI.Sprite();",
+                "",
+                "  // set the texture of the sprite to the image",
+                "  notepad.photo.texture = PIXI.Texture.fromImage(imageUrl);",
+                "",
+                "  // add the sprite to the stage",
+                "  jibo.face.stage.addChild(notepad.photo);",
+                "",
+                "}"
+            ],
+            "noDistortion": true
+        },
+        "asset-pack": "core",
+        "parent": 1
+    },
+    "14a8eb41-031c-4afe-9ac4-909f4fe2f2d0": {
+        "id": "14a8eb41-031c-4afe-9ac4-909f4fe2f2d0",
+        "class": "TimeoutJs",
+        "name": "",
+        "options": {
+            "getTime": [
+                "() => {",
+                "    return 3000;",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1
+    },
+    "f34ef223-e360-499b-bfe4-b363048c4885": {
+        "id": "f34ef223-e360-499b-bfe4-b363048c4885",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  //remove the image from the screen",
+                "  jibo.face.stage.removeChild(notepad.photo);",
+                "",
+                "  //force draw",
+                "  jibo.face.update();",
+                "",
+                "  //render only when dof values are dirty",
+                "  jibo.face.renderOnlyWhenDirty = true;",
+                "",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1
+    }
+}

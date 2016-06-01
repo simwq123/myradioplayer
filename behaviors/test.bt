@@ -1,0 +1,97 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "children": [
+            "5ddc6c1d-4d29-4513-91b8-268872a60a81",
+            "514f02c7-4921-40fe-9548-71beeb86ca67",
+            "73146325-86fc-49d4-b986-05d839ae2c34"
+        ],
+        "decorators": [
+            "19126387-7008-4c08-a24f-0ead8a2664ab"
+        ]
+    },
+    "meta": {
+        "version": 1
+    },
+    "5ddc6c1d-4d29-4513-91b8-268872a60a81": {
+        "id": "5ddc6c1d-4d29-4513-91b8-268872a60a81",
+        "class": "ListenEmbedded",
+        "name": "",
+        "options": {
+            "rule": "hey_jibo",
+            "onResult": [
+                "(listener) => {",
+                "\tlistener.on('hey-jibo', function(asrResult, speakerIds) {",
+                "",
+                "\t});",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": true
+    },
+    "73146325-86fc-49d4-b986-05d839ae2c34": {
+        "id": "73146325-86fc-49d4-b986-05d839ae2c34",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "Hello World!",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1
+    },
+    "514f02c7-4921-40fe-9548-71beeb86ca67": {
+        "id": "514f02c7-4921-40fe-9548-71beeb86ca67",
+        "class": "Listen",
+        "name": "",
+        "options": {
+            "getOptions": [
+                "() => {",
+                "    let options = {",
+                "        heyJibo: true,",
+                "        detectEnd: true,",
+                "        incremental: false,",
+                "        authenticateSpeaker: ''",
+                "    }",
+                "    return options;",
+                "}"
+            ],
+            "rule": "helloworld.rule",
+            "onResult": [
+                "(listener) => {",
+                "    listener.on('cloud', function(asrResult, speakerIds) {",
+                "",
+                "    });",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": false
+    },
+    "19126387-7008-4c08-a24f-0ead8a2664ab": {
+        "id": "19126387-7008-4c08-a24f-0ead8a2664ab",
+        "class": "WhileCondition",
+        "name": "",
+        "options": {
+            "init": [
+                "() => {",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "    return true;",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello World</title>
+        <script src="./src/lib/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles/main.css" />
+        <link rel="stylesheet" type="text/css" href="src/audioplayer/initaudioplayer.css">
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <meta name="viewport" content="width=device-width">
+        <!-- Insert to your webpage before the </head> -->
+    </head>
+    <body>
+        <div id="face"></div>
+        <script>
+            require('behaviorify/register-es6');
+            require('./src');
+        </script>
+        <div class="audioplayer">
+            <!-- Insert to your webpage where you want to display the audio player -->
+            <div id="audioplayer">
+                <ul class="audioplayer-audios" style="display:none;">
+                    <li data-artist="遠藤幹雄" data-title="KnocK-on Effect" data-album="K Original Soundtrack vol.1" data-info="" data-image="" data-duration="78">
+                        <div class="audioplayer-source" data-src="./audio/KnocK-on.mp3" data-type="audio/mpeg" />
+                    </li>
+                    <li data-artist="遠藤幹雄" data-title="KnocK-on Effect" data-album="K Original Soundtrack vol.1" data-info="" data-image="" data-duration="21">
+                        <div class="audioplayer-source" data-src="./audio/Knock.mp3" data-type="audio/mpeg" />
+                    </li>
+                    <li data-artist="" data-title="说不出口 - 刘涛" data-album="" data-info="" data-image="" data-duration="0">
+                        <div class="audioplayer-source" data-src="./audio/说不出口 - 刘涛.mp3" data-type="audio/mpeg" />
+                    </li>
+                </ul>
+            </div>
+            <!-- End of body section HTML codes -->
+
+        </div>
+    </body>
+</html>

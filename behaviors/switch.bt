@@ -1,0 +1,364 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "children": [
+            "af6082aa-5728-430c-9d09-8364f44a4964",
+            "ed9fa500-d8f9-4554-b081-d9390ef74806",
+            "9133bf49-6746-49f9-a22e-da854effbf76",
+            "07fc79bf-fdc4-49ab-bbcd-f6d5c12705e1",
+            "f5d05e32-e517-4f89-8cf8-9eebdd701571",
+            "2273b114-322f-49ac-8508-e017999519f4"
+        ],
+        "decorators": []
+    },
+    "meta": {
+        "version": 1
+    },
+    "2273b114-322f-49ac-8508-e017999519f4": {
+        "id": "2273b114-322f-49ac-8508-e017999519f4",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "even",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "decorators": [
+            "3fbc91d4-052f-4006-bf10-632c66bd4736"
+        ],
+        "skipped": true
+    },
+    "3fbc91d4-052f-4006-bf10-632c66bd4736": {
+        "id": "3fbc91d4-052f-4006-bf10-632c66bd4736",
+        "class": "Case",
+        "name": "",
+        "options": {
+            "conditional": [
+                "() => {",
+                "  if ((notepad.counter % 2) == 0) {",
+                "    return true;",
+                "  }",
+                "  return false;",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "07fc79bf-fdc4-49ab-bbcd-f6d5c12705e1": {
+        "id": "07fc79bf-fdc4-49ab-bbcd-f6d5c12705e1",
+        "class": "PlayAnimation",
+        "name": "",
+        "options": {
+            "animPath": "greeting.keys",
+            "config": [
+                "(animation) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": true
+    },
+    "f5d05e32-e517-4f89-8cf8-9eebdd701571": {
+        "id": "f5d05e32-e517-4f89-8cf8-9eebdd701571",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "Hello",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "decorators": [
+            "068e4f9a-fb50-4449-9baa-686f9af30285"
+        ],
+        "skipped": true
+    },
+    "068e4f9a-fb50-4449-9baa-686f9af30285": {
+        "id": "068e4f9a-fb50-4449-9baa-686f9af30285",
+        "class": "StartOnAnimEvent",
+        "name": "",
+        "options": {
+            "eventName": "blink",
+            "onReceived": [
+                "(animFileName, payload) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "ed9fa500-d8f9-4554-b081-d9390ef74806": {
+        "id": "ed9fa500-d8f9-4554-b081-d9390ef74806",
+        "class": "Switch",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "parent": 1,
+        "children": [
+            "f3b1e689-b431-48b9-99be-97aee41e1f5b",
+            "044f3b84-8082-4861-aad2-059ae03e0aff"
+        ],
+        "decorators": [
+            "53bf689f-b265-476c-bd3c-21de1d45b2c3"
+        ]
+    },
+    "53bf689f-b265-476c-bd3c-21de1d45b2c3": {
+        "id": "53bf689f-b265-476c-bd3c-21de1d45b2c3",
+        "class": "WhileCondition",
+        "options": {
+            "init": [
+                "() => {",
+                "  notepad.counter1 = 0;",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "    notepad.counter1++;",
+                "    if (notepad.counter1 < 8) {",
+                "      return true;",
+                "    }",
+                "    else {",
+                "      return false;",
+                "    }",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "skipped": false
+    },
+    "044f3b84-8082-4861-aad2-059ae03e0aff": {
+        "id": "044f3b84-8082-4861-aad2-059ae03e0aff",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "odd",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "ed9fa500-d8f9-4554-b081-d9390ef74806",
+        "skipped": false
+    },
+    "7b293f63-beb2-45cf-bff1-03896bd59fcd": {
+        "id": "7b293f63-beb2-45cf-bff1-03896bd59fcd",
+        "class": "Case",
+        "name": "",
+        "options": {
+            "conditional": [
+                "() => {",
+                "  if ((notepad.counter1 % 2) == 0) {",
+                "    return true;",
+                "  }",
+                "  return false;",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "f3b1e689-b431-48b9-99be-97aee41e1f5b": {
+        "id": "f3b1e689-b431-48b9-99be-97aee41e1f5b",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "even",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "ed9fa500-d8f9-4554-b081-d9390ef74806",
+        "decorators": [
+            "7b293f63-beb2-45cf-bff1-03896bd59fcd"
+        ],
+        "skipped": false
+    },
+    "9133bf49-6746-49f9-a22e-da854effbf76": {
+        "id": "9133bf49-6746-49f9-a22e-da854effbf76",
+        "class": "Parallel",
+        "name": "",
+        "options": {
+            "succeedOnOne": false
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "children": [
+            "8ed0c17d-bf34-46f7-80a1-6d5277a95bec",
+            "82d9f8f3-fbbc-4b65-939b-e74a23d1456b"
+        ],
+        "decorators": [
+            "3930e5f9-411f-4ffe-a707-34f732c577e4"
+        ]
+    },
+    "3930e5f9-411f-4ffe-a707-34f732c577e4": {
+        "id": "3930e5f9-411f-4ffe-a707-34f732c577e4",
+        "class": "WhileCondition",
+        "options": {
+            "init": [
+                "() => {",
+                "  notepad.counter2 = 0;",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "    notepad.counter2++;",
+                "    if (notepad.counter2 < 2) {",
+                "      return true;",
+                "    }",
+                "    else {",
+                "      return false;",
+                "    }",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "skipped": false
+    },
+    "497be896-d9a3-4305-9c68-a0e31f14799e": {
+        "id": "497be896-d9a3-4305-9c68-a0e31f14799e",
+        "class": "StartOnAnimEvent",
+        "name": "",
+        "options": {
+            "eventName": "blink",
+            "onReceived": [
+                "(animFileName, payload) => {",
+                "  return true;",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "82d9f8f3-fbbc-4b65-939b-e74a23d1456b": {
+        "id": "82d9f8f3-fbbc-4b65-939b-e74a23d1456b",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "Hello",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "9133bf49-6746-49f9-a22e-da854effbf76",
+        "decorators": [
+            "497be896-d9a3-4305-9c68-a0e31f14799e"
+        ],
+        "skipped": false
+    },
+    "8ed0c17d-bf34-46f7-80a1-6d5277a95bec": {
+        "id": "8ed0c17d-bf34-46f7-80a1-6d5277a95bec",
+        "class": "PlayAnimation",
+        "name": "",
+        "options": {
+            "animPath": "greeting.keys",
+            "config": [
+                "(animation) => {",
+                "  return true",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "9133bf49-6746-49f9-a22e-da854effbf76",
+        "skipped": false
+    },
+    "af6082aa-5728-430c-9d09-8364f44a4964": {
+        "id": "af6082aa-5728-430c-9d09-8364f44a4964",
+        "class": "Random",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "parent": 1,
+        "children": [
+            "9cdb5619-91bc-4ed3-9cdd-cf9fa932f10f",
+            "94f7b3d5-c9ef-4a8b-a4f0-930ffc9e4870",
+            "7e4341b7-2af7-4ee2-9416-44c0b50038aa"
+        ],
+        "decorators": [
+            "702254f5-1feb-4beb-902a-f0fdcd26cc00"
+        ],
+        "skipped": false
+    },
+    "702254f5-1feb-4beb-902a-f0fdcd26cc00": {
+        "id": "702254f5-1feb-4beb-902a-f0fdcd26cc00",
+        "class": "WhileCondition",
+        "options": {
+            "init": [
+                "() => {",
+                "  notepad.counter = 0;",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "    notepad.counter++;",
+                "    if (notepad.counter < 8) {",
+                "      return true;",
+                "    }",
+                "    else {",
+                "      return false;",
+                "    }",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "skipped": false
+    },
+    "7e4341b7-2af7-4ee2-9416-44c0b50038aa": {
+        "id": "7e4341b7-2af7-4ee2-9416-44c0b50038aa",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "3",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "af6082aa-5728-430c-9d09-8364f44a4964",
+        "skipped": false
+    },
+    "94f7b3d5-c9ef-4a8b-a4f0-930ffc9e4870": {
+        "id": "94f7b3d5-c9ef-4a8b-a4f0-930ffc9e4870",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "2",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "af6082aa-5728-430c-9d09-8364f44a4964",
+        "skipped": false
+    },
+    "9cdb5619-91bc-4ed3-9cdd-cf9fa932f10f": {
+        "id": "9cdb5619-91bc-4ed3-9cdd-cf9fa932f10f",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "1",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "af6082aa-5728-430c-9d09-8364f44a4964",
+        "skipped": false
+    }
+}

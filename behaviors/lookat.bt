@@ -1,0 +1,45 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "children": [
+            "cf795d4d-d0ae-4957-b4e7-4a15207b684e"
+        ],
+        "decorators": []
+    },
+    "meta": {
+        "version": 1
+    },
+    "cf795d4d-d0ae-4957-b4e7-4a15207b684e": {
+        "id": "cf795d4d-d0ae-4957-b4e7-4a15207b684e",
+        "class": "LookAt",
+        "name": "",
+        "options": {
+            "getTarget": [
+                "() => {",
+                "  let jibo = require('jibo');",
+                "let entity = jibo.lps.getClosestVisualEntity();",
+                "",
+                "let position = {x:.5, y:.1, z:.4};",
+                "",
+                "if (entity) {",
+                "position = {x: entity.position.x, y: entity.position.y, z: entity.position.z};",
+                "}",
+                "",
+                "return position;",
+                "",
+                "}"
+            ],
+            "isContinuous": true,
+            "config": [
+                "(lookAt) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1
+    }
+}

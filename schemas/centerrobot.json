@@ -1,0 +1,17 @@
+{
+  "CenterRobot":  {
+    "description": "Restores Jibo to his default position.",
+    "type": "leaf",
+    "options": [
+      {
+        "type": "boolean",
+        "field": "isGlobal",
+        "description": "If false, preserves Jibo's current local orientation. If true, also turns Jibo's entire body to face forward, away from his outlet.",
+        "defaultValue": false
+      }
+    ]
+  },
+  "meta" : {
+    "version": 1
+  }
+}

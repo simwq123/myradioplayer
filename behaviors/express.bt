@@ -1,0 +1,221 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "children": [
+            "3fa96135-81b8-4d0d-a538-3704434f5c46",
+            "a5fec75c-c432-483e-a4f9-cf395c4c1ce1",
+            "90fc56db-93f3-48f4-9bbe-421bce44bcc1",
+            "ee25d2ae-7c03-4549-8df3-95ce8b63c02b"
+        ],
+        "decorators": []
+    },
+    "meta": {
+        "version": 1
+    },
+    "3fa96135-81b8-4d0d-a538-3704434f5c46": {
+        "id": "3fa96135-81b8-4d0d-a538-3704434f5c46",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var express = require('express');",
+                "  var app = express();",
+                "  var fs = require('fs');",
+                "  console.log(\"abc\");",
+                "  app.use(express.static('node_modules'));",
+                "  app.get('/abc', function(req, res){",
+                "    console.log(\"abc\");",
+                "    var rdfs = fs.createReadStream('./test.html');",
+                "    rdfs.pipe(res);",
+                "    ",
+                "    //res.send('hello world');",
+                "  }).listen(80);",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1
+    },
+    "2a08821c-ae1e-4970-bb6d-852c29178840": {
+        "id": "2a08821c-ae1e-4970-bb6d-852c29178840",
+        "class": "PlayAnimation",
+        "name": "",
+        "options": {
+            "animPath": "greeting.keys",
+            "config": [
+                "(animation) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "ee25d2ae-7c03-4549-8df3-95ce8b63c02b",
+        "decorators": [
+            "873aa29f-4961-496e-a7d4-0b2670a13941"
+        ],
+        "skipped": true
+    },
+    "873aa29f-4961-496e-a7d4-0b2670a13941": {
+        "id": "873aa29f-4961-496e-a7d4-0b2670a13941",
+        "class": "WhileCondition",
+        "name": "",
+        "options": {
+            "init": [
+                "() => {",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "    return true;",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "ee25d2ae-7c03-4549-8df3-95ce8b63c02b": {
+        "id": "ee25d2ae-7c03-4549-8df3-95ce8b63c02b",
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "parent": 1,
+        "children": [
+            "b99aad0d-b4d9-4a24-be1d-99c362fbe1dd",
+            "93b32b8d-7df0-4bcd-8052-1568a2d11d85",
+            "1a7e7ef1-5068-46bb-bf22-ee66855625c1",
+            "e1b34ddc-ecb2-4e00-bba0-8a099fd258c5",
+            "e53997ef-1c5b-46f7-a6bd-ac3742407ee4",
+            "2a08821c-ae1e-4970-bb6d-852c29178840"
+        ],
+        "skipped": false
+    },
+    "1a7e7ef1-5068-46bb-bf22-ee66855625c1": {
+        "id": "1a7e7ef1-5068-46bb-bf22-ee66855625c1",
+        "class": "LookAt",
+        "name": "",
+        "options": {
+            "getTarget": [
+                "() => {",
+                "    return {x: 1, y: 10, z: -1};",
+                "}"
+            ],
+            "isContinuous": false,
+            "config": [
+                "(lookAt) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "ee25d2ae-7c03-4549-8df3-95ce8b63c02b",
+        "skipped": true
+    },
+    "e1b34ddc-ecb2-4e00-bba0-8a099fd258c5": {
+        "id": "e1b34ddc-ecb2-4e00-bba0-8a099fd258c5",
+        "class": "PlayAudio",
+        "name": "",
+        "options": {
+            "audioPath": "FX_Bawhoop.mp3"
+        },
+        "asset-pack": "core",
+        "parent": "ee25d2ae-7c03-4549-8df3-95ce8b63c02b"
+    },
+    "e53997ef-1c5b-46f7-a6bd-ac3742407ee4": {
+        "id": "e53997ef-1c5b-46f7-a6bd-ac3742407ee4",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var url = 'http://127.0.0.1/abc';",
+                "  // var request = require(\"request\");",
+                "  // request(url,function (error, response, body) {",
+                "  //   if (!error && response.statusCode == 200) {",
+                "  //     console.log(\"end\");",
+                "  //     console.log(\"body:\"+body) // 打印google首页",
+                "  //   }",
+                "  // })",
+                "  console.log('jump abc')",
+                "  alert(\"hehe\");",
+                "  window.open(url);",
+                "  //document.location.href=\"http://127.0.0.1/abc\";",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "ee25d2ae-7c03-4549-8df3-95ce8b63c02b"
+    },
+    "93b32b8d-7df0-4bcd-8052-1568a2d11d85": {
+        "id": "93b32b8d-7df0-4bcd-8052-1568a2d11d85",
+        "class": "TimeoutJs",
+        "name": "",
+        "options": {
+            "getTime": [
+                "() => {",
+                "    return 2000;",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "ee25d2ae-7c03-4549-8df3-95ce8b63c02b",
+        "skipped": false
+    },
+    "b99aad0d-b4d9-4a24-be1d-99c362fbe1dd": {
+        "id": "b99aad0d-b4d9-4a24-be1d-99c362fbe1dd",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "Hi, I'm Jibo, nice to meet you~",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "ee25d2ae-7c03-4549-8df3-95ce8b63c02b"
+    },
+    "a5fec75c-c432-483e-a4f9-cf395c4c1ce1": {
+        "id": "a5fec75c-c432-483e-a4f9-cf395c4c1ce1",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var url = 'http://127.0.0.1/abc';",
+                "  var request = require(\"request\");",
+                "  request(url,function (error, response, body) {",
+                "    if (!error && response.statusCode == 200) {",
+                "      console.log(\"end\");",
+                "      console.log(\"body:\"+body) // 打印google首页",
+                "    }",
+                "  })",
+                "  // console.log('jump abc')",
+                "  // window.open(\"http://127.0.0.1/abc\");",
+                "  //   alert(\"hehe\");",
+                "  //document.location.href=\"http://127.0.0.1/abc\";",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": true
+    },
+    "90fc56db-93f3-48f4-9bbe-421bce44bcc1": {
+        "id": "90fc56db-93f3-48f4-9bbe-421bce44bcc1",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  document.location.href=\"http://127.0.0.1/abc\";",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": false
+    }
+}

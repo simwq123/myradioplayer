@@ -1,0 +1,76 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "children": [
+            "815127ec-a0cf-422e-8aa2-f3efe84d6809",
+            "451780f9-5d08-44b5-bd6f-445a148760f4"
+        ],
+        "decorators": []
+    },
+    "meta": {
+        "version": 1
+    },
+    "815127ec-a0cf-422e-8aa2-f3efe84d6809": {
+        "id": "815127ec-a0cf-422e-8aa2-f3efe84d6809",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  console.log(\"123\");",
+                "  notepad.position = {x:.5, y:.1, z:.3};",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1
+    },
+    "451780f9-5d08-44b5-bd6f-445a148760f4": {
+        "id": "451780f9-5d08-44b5-bd6f-445a148760f4",
+        "class": "LookAt",
+        "name": "",
+        "options": {
+            "getTarget": [
+                "() => {",
+                "  let jibo = require('jibo');",
+                "let entity = jibo.lps.getClosestAudibleEntity();",
+                "",
+                "// valid if we have data and confidence is at least 0.6",
+                "let valid = (entity !== undefined && entity.confidence >= 0.6);",
+                "",
+                "if (valid) {",
+                "let pos = entity.position;",
+                "pos = new jibo.animate.THREE.Vector3(pos.x, pos.y, pos.z);",
+                "pos.normalize();",
+                "",
+                "let newZ = pos.z;",
+                "// if (newZ > 0.5) {",
+                "// newZ = 0.5;",
+                "// }",
+                "// if (newZ < 0.2) {",
+                "// newZ = 0.2;",
+                "// }",
+                "",
+                "notepad.position    = {x: pos.x, y:pos.y, z: newZ};",
+                "",
+                "return notepad.position;",
+                "}",
+                "else {",
+                "return notepad.position;",
+                "}",
+                "",
+                "}"
+            ],
+            "isContinuous": true,
+            "config": [
+                "(lookAt) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1
+    }
+}

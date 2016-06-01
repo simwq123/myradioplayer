@@ -1,0 +1,508 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Parallel",
+        "name": "",
+        "options": {
+            "succeedOnOne": false
+        },
+        "asset-pack": "core",
+        "children": [
+            "20d4736e-9824-4d6c-b134-a516e8925be4",
+            "4207bf9b-9789-4c64-a934-ca481a7c3a39",
+            "31823099-1bd0-4c4b-a6d5-881c9a96dc6b",
+            "d796f487-e7d6-4555-8f88-0810017cd0dd",
+            "1de5e10a-e317-44c7-8c81-cb4e83110af2",
+            "72b1be25-52de-4d2c-a347-0870fb0d5ebc",
+            "d4be733d-7c4e-4be7-9859-13827b677401",
+            "9827638b-a3ce-40d4-be97-081aa91128d4",
+            "c6193098-d694-4749-b49c-52cd887872c5",
+            "2361dae1-1aa0-4317-9e82-9826040a8068",
+            "4ef0fd7f-354d-4ac8-b662-771c79fad60f"
+        ],
+        "decorators": [
+            "9e7895d3-2ca7-481e-8bb2-181300e86a27"
+        ]
+    },
+    "meta": {
+        "version": 1
+    },
+    "2361dae1-1aa0-4317-9e82-9826040a8068": {
+        "id": "2361dae1-1aa0-4317-9e82-9826040a8068",
+        "class": "ExecuteScript",
+        "name": "lookat",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var animate = require(\"jibo\").animate;",
+                "  animate.blink(true); ",
+                "  var target = new animate.THREE.Vector3(1.0, 1.0, 1.0);  // target position to look at",
+                "",
+                "var builder = animate.createLookatBuilder();",
+                "builder.startLookat(target);",
+                "  console.log(1);",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "decorators": [],
+        "skipped": true
+    },
+    "9e7895d3-2ca7-481e-8bb2-181300e86a27": {
+        "id": "9e7895d3-2ca7-481e-8bb2-181300e86a27",
+        "class": "WhileCondition",
+        "name": "",
+        "options": {
+            "init": [
+                "() => {",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "    return true;",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "skipped": true
+    },
+    "d4be733d-7c4e-4be7-9859-13827b677401": {
+        "id": "d4be733d-7c4e-4be7-9859-13827b677401",
+        "class": "TimeoutJs",
+        "name": "",
+        "options": {
+            "getTime": [
+                "() => {",
+                "    return 2100;",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": true
+    },
+    "4ef0fd7f-354d-4ac8-b662-771c79fad60f": {
+        "id": "4ef0fd7f-354d-4ac8-b662-771c79fad60f",
+        "class": "ExecuteScript",
+        "name": "robotinfo",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var animate = require(\"jibo\").animate;",
+                "  animate.centerRobot(jibo.animate.dofs.ALL,",
+                "  true)",
+                "  var info = animate.getRobotInfo() ;",
+                "  // console.log(JSON.stringify(info))",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "decorators": [],
+        "skipped": true
+    },
+    "c6193098-d694-4749-b49c-52cd887872c5": {
+        "id": "c6193098-d694-4749-b49c-52cd887872c5",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var animate = require(\"jibo\").animate;",
+                "  var behavior = require(\"jibo\").bt.behaviors;",
+                "  var animPath = \"animations/greeting.keys\";  // path to animation file",
+                "  var basePath = \"animations\";             // base path for texture resolution",
+                "",
+                "  animate.createAnimationBuilderFromKeysPath(animPath, basePath, (builder) => {",
+                "    // add listener",
+                "    // builder.setSpeed(0.5);",
+                "     var duration = builder.getConfiguredAnimationDuration() * 1000;",
+                "     console.log(duration);",
+                "     //behavior.TimeoutJs(duration);",
+                "    //console.log(builder.getSourceAnimationDuration());",
+                "    // console.log(JSON.stringify(builder.getDOFs()));",
+                "    //builder.setNumLoops(5);",
+                "    //console.log(JSON.stringify(builder.getTransitionIn()));",
+                "    builder.on(animate.AnimationEventType.STOPPED, (eventType, instance, payload) => {",
+                "        console.log(\"Animation stopped; was interrupted = \" + payload.interrupted);",
+                "    });",
+                "    // trigger an instance of the animation",
+                "    builder.play();",
+                "}); ",
+                "var old = new Date();",
+                "console.log(\"old:\"+old)",
+                "behavior.TimeoutJs(2100);",
+                "var now = new Date()",
+                "console.log(\"new:\"+now)",
+                "console.log(now-old)",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "decorators": [
+            "32661eb9-ed9a-4087-bcdf-af5cb731967f",
+            "564064ea-78d6-44e7-a518-8dbb711bc72d"
+        ],
+        "skipped": true
+    },
+    "1de5e10a-e317-44c7-8c81-cb4e83110af2": {
+        "id": "1de5e10a-e317-44c7-8c81-cb4e83110af2",
+        "class": "ExecuteScript",
+        "name": "1",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var sound = require(\"jibo\").sound;",
+                "  var soundObj = new sound.Sound(sound._context, \"./audio/Knock.mp3\");",
+                "  function complete(){",
+                "    console.log(\"complete321\");",
+                "    notepad.musicComplete = true;",
+                "  }",
+                "  function loaded(){",
+                "      emitter.emit('musicLoaded')",
+                "  }",
+                "  soundObj.complete = complete;",
+                "  soundObj.play({loaded : loaded});",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": true
+    },
+    "564064ea-78d6-44e7-a518-8dbb711bc72d": {
+        "id": "564064ea-78d6-44e7-a518-8dbb711bc72d",
+        "class": "StartOnEvent",
+        "name": "",
+        "options": {
+            "eventName": "musicLoaded",
+            "onEvent": [
+                "() => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "skipped": true
+    },
+    "32661eb9-ed9a-4087-bcdf-af5cb731967f": {
+        "id": "32661eb9-ed9a-4087-bcdf-af5cb731967f",
+        "class": "WhileCondition",
+        "name": "",
+        "options": {
+            "init": [
+                "() => {",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "  if (notepad.musicComplete != true)",
+                "    return true;",
+                "  else ",
+                "    return false;",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "skipped": true
+    },
+    "24777c89-fa72-4702-9e6f-c6b1ce906abf": {
+        "id": "24777c89-fa72-4702-9e6f-c6b1ce906abf",
+        "class": "WhileCondition",
+        "name": "",
+        "options": {
+            "init": [
+                "() => {",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "  if (notepad.musicComplete != true)",
+                "    return true;",
+                "  else ",
+                "    return false;",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "skipped": true
+    },
+    "fca375b1-7262-42be-ab02-493b5c5c5ff1": {
+        "id": "fca375b1-7262-42be-ab02-493b5c5c5ff1",
+        "class": "StartOnEvent",
+        "name": "",
+        "options": {
+            "eventName": "musicLoaded",
+            "onEvent": [
+                "() => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "skipped": true
+    },
+    "72b1be25-52de-4d2c-a347-0870fb0d5ebc": {
+        "id": "72b1be25-52de-4d2c-a347-0870fb0d5ebc",
+        "class": "ExecuteScript",
+        "name": "1",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var animate = require(\"jibo\").animate;",
+                "  var behavior = require(\"jibo\").bt.behaviors;",
+                "  var animPath = \"animations/greeting.keys\";  // path to animation file",
+                "  var basePath = \"animations\";             // base path for texture resolution",
+                "",
+                "  setInterval(function(){",
+                "    animate.createAnimationBuilderFromKeysPath(animPath, basePath, (builder) => {",
+                "      var duration = builder.getConfiguredAnimationDuration() * 1000;",
+                "      console.log(duration);",
+                "      builder.on(animate.AnimationEventType.STOPPED, (eventType, instance, payload) => {",
+                "          console.log(\"Animation stopped; was interrupted = \" + payload.interrupted);",
+                "      });",
+                "      builder.play();",
+                "    })",
+                "  }, 2100); ",
+                "",
+                "  //new behavior.TimeoutJs({getTime:2100});",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "decorators": [
+            "24777c89-fa72-4702-9e6f-c6b1ce906abf",
+            "fca375b1-7262-42be-ab02-493b5c5c5ff1"
+        ],
+        "skipped": true
+    },
+    "9827638b-a3ce-40d4-be97-081aa91128d4": {
+        "id": "9827638b-a3ce-40d4-be97-081aa91128d4",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var old = new Date();",
+                "  var sound = require(\"jibo\").sound;",
+                "  var soundObj = new sound.Sound(sound._context, \"./audio/Knock.mp3\");",
+                "  function complete(){",
+                "    console.log(\"complete321\");",
+                "    notepad.musicComplete = true;",
+                "  }",
+                "  function loaded(){",
+                "      // var now = new Date();",
+                "      // console.log(old);",
+                "      // console.log(now);",
+                "      // console.log((now-old)/1000);",
+                "      emitter.emit('musicLoaded')",
+                "  }",
+                "  soundObj.complete = complete;",
+                "  soundObj.play({loaded : loaded});",
+                "  //var sound = require(\"jibo\").sound;",
+                "  //var soundIns = sound.add(\"123\", \"./audio/最美的年华-弘诺方舟.mp3\");",
+                "  // sound.play(\"123\", { loaded:function(){",
+                "  //                         console.log(\"loaded:\");",
+                "  //                       }",
+                "  //                     });",
+                "  //soundIns.play();",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": true
+    },
+    "4207bf9b-9789-4c64-a934-ca481a7c3a39": {
+        "id": "4207bf9b-9789-4c64-a934-ca481a7c3a39",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var anima = require(\"../src/animate\");",
+                "  var sound = require(\"jibo\").sound;",
+                "  var basePath = \"./audio/\";",
+                "  var mp3Arr = require(\"../src/mylib\").getMp3FileName();",
+                "  var soundObj = new sound.Sound(sound._context, basePath+mp3Arr[16]);          ",
+                "",
+                "  function complete() {",
+                "    console.log(\"complete321\");",
+                "    isComplete = true;",
+                "  }",
+                "  function loaded() {",
+                "      //emitter.emit('musicLoaded')",
+                "      anima.chooseTypeToPlay();",
+                "      setTimeout(function () {",
+                "        soundObj.pause();",
+                "        isPause = true;",
+                "      }, 10000);",
+                "      setTimeout(function () {",
+                "        soundObj.resume();",
+                "        anima.chooseTypeToPlay();",
+                "        isPause = false;",
+                "      }, 15000);",
+                "  }",
+                "  ",
+                "  console.log(mp3Arr);",
+                "  soundObj.complete = complete;",
+                "  soundObj.play({loaded : loaded});",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": true
+    },
+    "d796f487-e7d6-4555-8f88-0810017cd0dd": {
+        "id": "d796f487-e7d6-4555-8f88-0810017cd0dd",
+        "class": "ExecuteScript",
+        "name": "delaymethod",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var animate = require(\"jibo\").animate;",
+                "  var sound = require(\"jibo\").sound;",
+                "  var timer = require(\"jibo\").timer;",
+                "  var soundObj = new sound.Sound(sound._context, \"./audio/Knock.mp3\");",
+                "  var basePath = \"animations/\";          ",
+                "  var animPath = \"animations/dance.keys\"; ",
+                "  var isComplete = false;",
+                "  var timeHandle = null;",
+                "  function complete() {",
+                "    console.log(\"complete321\");",
+                "    clearTimeout(timeHandle);",
+                "    notepad.musicComplete = true;",
+                "  }",
+                "  function loaded() {",
+                "      emitter.emit('musicLoaded')",
+                "      playAnimation(55);",
+                "  }",
+                "  function playAnimation(frame) {",
+                "    animate.createAnimationBuilderFromKeysPath(animPath, basePath, (builder) => {",
+                "      builder.on(animate.AnimationEventType.STOPPED, (eventType, instance, payload) => {",
+                "          console.log(\"Animation stopped; was interrupted = \" + payload.interrupted);",
+                "          //builder.play();",
+                "      });",
+                "      var interval = builder.getConfiguredAnimationDuration() * 1200;",
+                "      console.log(interval);",
+                "      timeHandle = timer.setTimeout(function(){",
+                "        chooseType();",
+                "      }, frame, true); ",
+                "      builder.play();",
+                "    })",
+                "  }",
+                "  ",
+                "  function chooseType() {",
+                "    var interval;",
+                "    var type = (1 + Math.floor(Math.random() * 3)) % 3;",
+                "    switch(type) {",
+                "      case 0: {",
+                "        animPath = basePath + \"dance.keys\";",
+                "        interval = 55;",
+                "        break;",
+                "      }",
+                "      case 1: {",
+                "        animPath = basePath + \"excited.keys\";",
+                "        interval = 60;",
+                "        break;",
+                "      }",
+                "      default: {",
+                "        animPath = basePath + \"greeting.keys\";",
+                "        interval = 62;",
+                "        break;",
+                "      }",
+                "    } ",
+                "    playAnimation(interval);",
+                "  }",
+                "  soundObj.complete = complete;",
+                "  soundObj.play({loaded : loaded});",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": true
+    },
+    "31823099-1bd0-4c4b-a6d5-881c9a96dc6b": {
+        "id": "31823099-1bd0-4c4b-a6d5-881c9a96dc6b",
+        "class": "ExecuteScript",
+        "name": "playMusicAndAnimation",
+        "options": {
+            "exec": [
+                "() => {",
+                "  var animate = require(\"jibo\").animate;",
+                "  var sound = require(\"jibo\").sound;",
+                "  var mp3Arr = require(\"../src/mylib\").getMp3FileName();",
+                "  var animationArr = [\"dance\", \"excited\", \"greeting\"];",
+                "  var basePath = \"animations/\";",
+                "  var soundObj = new sound.Sound(sound._context, \"./audio/Knock.mp3\");          ",
+                "  var gBuilder = {};",
+                "  var isComplete = false;",
+                "  var pause = false;",
+                "  function complete() {",
+                "    console.log(\"complete321\");",
+                "    isComplete = true;",
+                "  }",
+                "  function loaded() {",
+                "      //emitter.emit('musicLoaded')",
+                "      chooseTypeToPlay();",
+                "      setTimeout(function () {",
+                "        soundObj.pause();",
+                "        pause = true;",
+                "      }, 10000);",
+                "      setTimeout(function () {",
+                "        soundObj.resume();",
+                "        chooseTypeToPlay();",
+                "        pause = false;",
+                "      }, 15000);",
+                "  }",
+                "  function createBuilder(animation) {",
+                "    var animPath = basePath + animation + \".keys\";",
+                "    animate.createAnimationBuilderFromKeysPath(animPath, basePath, (builder) => {",
+                "      builder.on(animate.AnimationEventType.STOPPED, (eventType, instance, payload) => {",
+                "          //console.log(\"Animation stopped; was interrupted = \" + animation + payload.interrupted);",
+                "          if ((!isComplete) && (!pause)) {",
+                "            chooseTypeToPlay();",
+                "          }",
+                "      });",
+                "      gBuilder[animation] = builder;",
+                "      console.log(\"create \" + animation + \" OK\");",
+                "    })",
+                "  }",
+                "  ",
+                "  function chooseTypeToPlay() {",
+                "    var type = (1 + Math.floor(Math.random() * 3)) % 3;",
+                "    gBuilder[animationArr[type]].play();",
+                "  }",
+                "  for (var i = 0; i < animationArr.length; i++) {",
+                "    createBuilder(animationArr[i]);",
+                "  }",
+                "  console.log(mp3Arr);",
+                "  soundObj.complete = complete;",
+                "  soundObj.play({loaded : loaded});",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": true
+    },
+    "20d4736e-9824-4d6c-b134-a516e8925be4": {
+        "id": "20d4736e-9824-4d6c-b134-a516e8925be4",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  require('../src/audioplayer/audioplayer')",
+                "  require('../src/audioplayer/initaudioplayer')",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "skipped": false
+    }
+}
